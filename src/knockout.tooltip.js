@@ -7,7 +7,9 @@
         var behaviour = {};
         if (typeof bindings == "string")
         { behaviour.content = bindings; }
-        else {
+        else if (typeof bindings == "function")
+	        { behaviour.content = bindings(); }
+	    else {
             behaviour.content = {
                 text: bindings.content,
                 title: { text: bindings.title }
